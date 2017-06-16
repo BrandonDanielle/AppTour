@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Hola Mundo
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [(formGroup)]="data" #loginForm="ngForm" id="login-form">
+    <ion-list inset>
+      <ion-item>
+        <ion-label fixed>Correo</ion-label>
+        <ion-input formControlName="username" type="text" value=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+
+  <form [(formGroup)]="formexdata" #formejemplo="ngForm" id="formejemplo">
+
+    <ion-item>
+      <ion-label fixed>Nombre Completo</ion-label>
+      <ion-input formControlName="name" type="text" value=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Genero</ion-label>
+      <ion-select formControlName="gender">
+        <ion-option value="f">Female</ion-option>
+        <ion-option value="m">Male</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Comida Favorita</ion-label>
+      <ion-select formControlName="gender">
+        <ion-option value="z">Pizza</ion-option>
+        <ion-option value="P">Hot-Dog</ion-option>
+        <ion-option value="h">Hamburguesa</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button color="light" block (click)="guardarForm()" form="formexdata" id="formejemplo" icon-right>Guardado</button>
+  </form>
+
+  <ion-list>
+    <button ion-item *ngFor="let record of records | async">
+    <ion-avatar item-start>
+      <img src="assets/img/agente.jpg">
+      </ion-avatar>
+      <h2>{{record.name}}</h2>
+      <h3>{{record.gender}}</h3>
+      <p>{{record.hobby}}</p>
+      </button>
+        </ion-list>
+
+
+        <!--<ion-card (swipe)="myFunction($event)">
+  <ion-item>
+    Swipped: {{swipe}} times
+  </ion-item>
+</ion-card>      
+
+<ion-card (tap)="tapFunction($event)">
+  <ion-item>
+    Tapped: {{tap}} times
+  </ion-item>
+</ion-card> 
+-->
+
+</ion-content>
+<!--asi se escriben los comentrios en html-->
